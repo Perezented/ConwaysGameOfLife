@@ -3,9 +3,23 @@ import logo from "./logo.svg";
 import "./App.css";
 // import Grid from "./components/Grid";
 
+class Box extends React.Component {
+    selectBox = () => {
+        this.props.selectBox(this.props.row, this.props.col);
+    };
+    render() {
+        return (
+            <div
+                className={this.props.boxClass}
+                id={this.props.id}
+                onClick={this.selectBox}
+            />
+        );
+    }
+}
 class Grid extends React.Component {
     render() {
-        const width = this.props.cols;
+        const width = this.props.cols * 14;
         let rowsArr = [];
         let boxClass = "";
         for (let i = 0; i < this.props.rows; i++) {
@@ -13,23 +27,21 @@ class Grid extends React.Component {
                 let boxId = i + "_" + j;
                 boxClass = this.props.gridFull[i][j] ? "box on" : "box off";
                 rowsArr.push(
-                    <></>
-                    // <Box
-                    //     boxClass={boxClass}
-                    //     key={boxId}s
-                    //     boxId={boxId}
-                    //     row={i}
-                    //     col={j}
-                    //     selectBox={this.props.selectBox}
-                    // >
-                    //     test
-                    // </Box>
+                    // <></>
+                    <Box
+                        boxClass={boxClass}
+                        key={boxId}
+                        boxId={boxId}
+                        row={i}
+                        col={j}
+                        selectBox={this.props.selectBox}
+                    />
                 );
             }
         }
         return (
             <div className="grid" style={{ width: width }}>
-                {{ rowsArr }}
+                {rowsArr}
             </div>
         );
     }
@@ -45,9 +57,7 @@ class App extends React.Component {
             generation: 0,
             gridFull: Array(this.rows)
                 .fill()
-                .map(() => {
-                    Array(this.columns).fill(false);
-                }),
+                .map(() => Array(this.columns).fill(false)),
         };
     }
     render() {
