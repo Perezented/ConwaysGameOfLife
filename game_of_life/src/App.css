@@ -37,12 +37,13 @@
     }
 }
 body {
-    background-color: #282c34;
+    background-image: url("./eberhard-grossgasteiger-xC7Ho08RYF4-unsplash.jpg");
+    /* background-color: #282c34; */
 }
 
 .box {
     display: inline-block;
-    border: 1px solid black;
+    border: 1px solid rgba(9, 255, 0, 0.26);
     width: 15px;
     height: 15px;
     margin-left: -1px;
@@ -50,15 +51,15 @@ body {
 }
 
 .off {
-    background-color: white;
+    background-color: rgb(0, 0, 0);
 }
 
 .on {
-    background-color: rgb(56, 206, 56);
+    background-color: #2bae66ff;
 }
 
 .box:hover {
-    background: #0e7444;
+    background: #0b7e07;
 }
 
 .center {
@@ -72,6 +73,7 @@ body {
     line-height: 0;
     margin: auto;
     margin-top: 20px;
+    border: 15px ridge;
 }
 
 h1,
