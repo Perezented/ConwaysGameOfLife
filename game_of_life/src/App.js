@@ -57,7 +57,7 @@ class App extends React.Component {
             generation: 0,
             gridFull: Array(this.rows)
                 .fill()
-                .map(() => Array(this.columns).fill(false)),
+                .map(() => Array(this.cols).fill(false)),
         };
     }
 
@@ -78,6 +78,7 @@ class App extends React.Component {
                     gridFull={this.state.gridFull}
                     rows={this.rows}
                     cols={this.cols}
+                    selectBox={this.selectBox}
                 />
             </div>
         );
