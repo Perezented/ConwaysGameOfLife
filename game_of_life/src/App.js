@@ -1,69 +1,8 @@
 import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
-// import Grid from "./components/Grid";
-
-class Box extends React.Component {
-    selectBox = () => {
-        this.props.selectBox(this.props.row, this.props.col);
-    };
-    render() {
-        return (
-            <div
-                className={this.props.boxClass}
-                id={this.props.id}
-                onClick={this.selectBox}
-            />
-        );
-    }
-}
-class Grid extends React.Component {
-    render() {
-        const width = this.props.cols * 16;
-        let rowsArr = [];
-        let boxClass = "";
-        for (let i = 0; i < this.props.rows; i++) {
-            for (let j = 0; j < this.props.cols; j++) {
-                let boxId = i + "_" + j;
-                boxClass = this.props.gridFull[i][j] ? "box on" : "box off";
-                rowsArr.push(
-                    <Box
-                        boxClass={boxClass}
-                        key={boxId}
-                        boxId={boxId}
-                        row={i}
-                        col={j}
-                        selectBox={this.props.selectBox}
-                    />
-                );
-            }
-        }
-        return (
-            <div className="grid" style={{ width: width }}>
-                {rowsArr}
-            </div>
-        );
-    }
-}
-class Buttons extends React.Component {
-    handleSelect = (evt) => {
-        this.props.gridSize(evt);
-    };
-
-    render() {
-        return (
-            <div className="center">
-                {/* <ButtonToolbar> */}
-                <button onClick={this.props.playButton}>Play</button>
-                <button onClick={this.props.pauseButton}>Pause</button>
-                <button onClick={this.props.clear}>Clear</button>
-                <button onClick={this.props.slow}>Slow</button>
-                <button onClick={this.props.fast}>Fast</button>
-                <button onClick={this.props.seed}>Seed</button>
-            </div>
-        );
-    }
-}
+import Grid from "./components/Grid";
+import Buttons from "./components/Buttons.js";
 
 class App extends React.Component {
     constructor() {
@@ -94,7 +33,7 @@ class App extends React.Component {
         let gridCopy = arrayClone(this.state.gridFull);
         for (let i = 0; i < this.rows; i++) {
             for (let j = 0; j < this.cols; j++) {
-                if (Math.floor(Math.random() * 7) === 1) {
+                if (Math.floor(Math.random() * 5) === 1) {
                     gridCopy[i][j] = true;
                 }
             }
@@ -134,6 +73,7 @@ class App extends React.Component {
             gridFull: grid,
             generation: 0,
         });
+        this.pauseButton();
     };
     gridSize = (size) => {
         switch (size) {
