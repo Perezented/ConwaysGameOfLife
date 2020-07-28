@@ -70,8 +70,8 @@ class App extends React.Component {
         super();
         this.going = false;
         this.speed = 500;
-        this.rows = 30;
-        this.cols = 50;
+        this.rows = 45;
+        this.cols = 45;
         this.state = {
             generation: 0,
             gridFull: Array(this.rows)
@@ -99,7 +99,7 @@ class App extends React.Component {
                 }
             }
         }
-        this.setState({ gridFull: gridCopy });
+        this.setState({ gridFull: gridCopy, generation: 0 });
     };
 
     playButton = () => {
@@ -142,16 +142,12 @@ class App extends React.Component {
                 this.rows = 25;
                 break;
             case "2":
-                this.cols = 25;
-                this.rows = 25;
-                break;
-            case "3":
-                this.cols = 25;
-                this.rows = 25;
+                this.cols = 50;
+                this.rows = 50;
                 break;
             default:
-                this.cols = 50;
-                this.rows = 30;
+                this.cols = 45;
+                this.rows = 45;
         }
         this.clear();
     };

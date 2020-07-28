@@ -73,7 +73,7 @@ body {
     line-height: 0;
     margin: auto;
     margin-top: 20px;
-    border: 15px ridge;
+    border: 20px ridge rgba(4, 47, 29, 0.89);
 }
 
 h1,
