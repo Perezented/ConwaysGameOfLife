@@ -25,7 +25,7 @@
 }
 
 .App-link {
-    color: #61dafb;
+    color: white;
 }
 
 @keyframes App-logo-spin {
@@ -37,7 +37,7 @@
     }
 }
 body {
-    background-image: url(http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/squares.png);
+    background-color: #282c34;
 }
 
 .box {
@@ -50,15 +50,15 @@ body {
 }
 
 .off {
-    background-color: lightgray;
+    background-color: white;
 }
 
 .on {
-    background-color: green;
+    background-color: rgb(56, 206, 56);
 }
 
 .box:hover {
-    background: #00ccff;
+    background: #0e7444;
 }
 
 .center {
@@ -71,7 +71,6 @@ body {
     width: 150px;
     line-height: 0;
     margin: auto;
-    box-shadow: 0px 0px 20px white;
     margin-top: 20px;
 }
 
