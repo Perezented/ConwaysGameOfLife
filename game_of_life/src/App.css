@@ -37,7 +37,11 @@
     }
 }
 body {
-    background-image: url("./eberhard-grossgasteiger-xC7Ho08RYF4-unsplash.jpg");
+    background-image: url("./claudio-schwarz-purzlbaum-oNWvPQXoEKc-unsplash.jpg");
+    background-position-y: bottom;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
     /* background-color: #282c34; */
 }
 
@@ -89,4 +93,20 @@ h4 {
 
 h4 {
     margin-top: 0px;
+}
+
+section {
+    display: grid;
+    grid-template-columns: 1.5fr 0.7fr 0.3fr;
+    margin-top: 1%;
+    line-height: 2rem;
+}
+.gameRules {
+    margin-top: 10%;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+.gameRules li {
+    margin: 2%;
 }

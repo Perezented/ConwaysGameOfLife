@@ -3,7 +3,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import Grid from "./components/Grid";
 import Buttons from "./components/Buttons.js";
-
+import GameRules from "./components/GameRules";
 class App extends React.Component {
     constructor() {
         super();
@@ -122,27 +122,34 @@ class App extends React.Component {
 
     render() {
         return (
-            <div>
-                <h1>The Game of Life</h1>
-                <h2>Generations: {this.state.generation}</h2>
-                <Grid
-                    gridFull={this.state.gridFull}
-                    rows={this.rows}
-                    cols={this.cols}
-                    selectBox={this.selectBox}
-                />
-                <br />
-                <h4>Current Speed: {this.speed / 1000}seconds/generation</h4>
-                <Buttons
-                    playButton={this.playButton}
-                    pauseButton={this.pauseButton}
-                    slow={this.slow}
-                    fast={this.fast}
-                    clear={this.clear}
-                    seed={this.seed}
-                    gridSize={this.gridSize}
-                />
-            </div>
+            <section>
+                <div>
+                    <h1>The Game of Life</h1>
+                    <h2>Generations: {this.state.generation}</h2>
+                    <Grid
+                        gridFull={this.state.gridFull}
+                        rows={this.rows}
+                        cols={this.cols}
+                        selectBox={this.selectBox}
+                    />
+                    <br />
+                    <h4>
+                        Current Speed: {this.speed / 1000}seconds/generation
+                    </h4>
+                    <Buttons
+                        playButton={this.playButton}
+                        pauseButton={this.pauseButton}
+                        slow={this.slow}
+                        fast={this.fast}
+                        clear={this.clear}
+                        seed={this.seed}
+                        gridSize={this.gridSize}
+                    />
+                </div>
+                <div>
+                    <GameRules />
+                </div>
+            </section>
         );
     }
 }
