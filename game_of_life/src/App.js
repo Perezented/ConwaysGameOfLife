@@ -4,6 +4,8 @@ import "./App.css";
 import Grid from "./components/Grid";
 import Buttons from "./components/Buttons.js";
 import GameRules from "./components/GameRules";
+
+document.title = "Conways's Game of Life";
 class App extends React.Component {
     constructor() {
         super();
