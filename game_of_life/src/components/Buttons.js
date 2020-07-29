@@ -6,7 +6,7 @@ class Buttons extends React.Component {
 
     render() {
         return (
-            <div className="center">
+            <div className="buttons">
                 <button onClick={this.props.playButton}>Play</button>
                 <button onClick={this.props.pauseButton}>Pause</button>
                 <button onClick={this.props.clear}>Clear</button>

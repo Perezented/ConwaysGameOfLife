@@ -9,8 +9,8 @@ class App extends React.Component {
         super();
         this.going = false;
         this.speed = 500;
-        this.rows = 45;
-        this.cols = 45;
+        this.rows = 50;
+        this.cols = 50;
         this.state = {
             generation: 0,
             gridFull: Array(this.rows)
@@ -132,7 +132,6 @@ class App extends React.Component {
                         cols={this.cols}
                         selectBox={this.selectBox}
                     />
-                    <br />
                     <h4>
                         Current Speed: {this.speed / 1000}seconds/generation
                     </h4>
