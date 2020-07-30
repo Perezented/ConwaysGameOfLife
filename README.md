@@ -31,6 +31,9 @@ On this version, the grid is 50x50 to begin with. The walls act as dead cells.
 React js was the main code for this project. Nothing more than normal react dependencies needed.
 
 -react
+
 -react-dom
+
 -react-scripts
+
 -react testing libraries
