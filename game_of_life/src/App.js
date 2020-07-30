@@ -5,7 +5,6 @@ import Grid from "./components/Grid";
 import Buttons from "./components/Buttons.js";
 import GameRules from "./components/GameRules";
 import GridTemplates from "./components/GridTemplates.js";
-import GridSize from "./components/GridSize";
 //  Renaming of the page's title
 document.title = "Conways's Game of Life";
 
@@ -113,7 +112,6 @@ class App extends React.Component {
 
     ship = async () => {
         await this.clear();
-
         let gridCopy = arrayClone(this.state.gridFull);
         let j = Math.floor(this.rows / 2) + 1;
         let i = Math.floor(this.cols / 2) + 1;
@@ -135,6 +133,7 @@ class App extends React.Component {
         }
         this.setState({ gridFull: gridCopy });
     };
+
     fpentomino = async () => {
         await this.clear();
 
