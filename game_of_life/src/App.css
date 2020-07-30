@@ -48,8 +48,8 @@ html {
 .box {
     display: inline-block;
     border: 1px solid rgba(9, 255, 0, 0.26);
-    width: 1rem;
-    height: 1rem;
+    width: 10px;
+    height: 10px;
     margin-left: -1px;
     margin-bottom: -1px;
 }
@@ -136,4 +136,23 @@ button:hover {
     filter: drop-shadow(0 0 0.2rem rgb(157, 248, 154));
     cursor: pointer;
     /* background: linear-gradient(rgb(128, 128, 128), rgba(0, 0, 0, 0.897)); */
+}
+.imgs {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 0 auto;
+    width: 90%;
+}
+.imgs img {
+    margin: 0 1rem;
+    padding: 0;
+    cursor: pointer;
+
+    border: ridge 7px rgb(4, 53, 4);
+}
+.imgs h4 {
+    padding: 0;
+    width: 110%;
+    text-align: center;
+    margin-left: -7%;
 }

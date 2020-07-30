@@ -5,7 +5,7 @@ class Grid extends React.Component {
     // checks the grid to see if the box is true or false and sets them to their approipriate css class
     // Here is the returned width for the grid
     render() {
-        const width = this.props.cols * 14;
+        const width = this.props.cols * 11;
 
         let rowsArr = [];
         let boxClass = "";

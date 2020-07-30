@@ -4,7 +4,6 @@ class Buttons extends React.Component {
         this.props.gridSize(evt);
     };
 
-    // Buttons to return functions
     render() {
         return (
             <div className="buttons">
@@ -12,6 +11,7 @@ class Buttons extends React.Component {
                 <button onClick={this.props.pauseButton}>Pause</button>
                 <button onClick={this.props.slow}>Slower</button>
                 <button onClick={this.props.fast}>Faster</button>
+                <button onClick={this.props.clear}>Clear</button>
             </div>
         );
     }

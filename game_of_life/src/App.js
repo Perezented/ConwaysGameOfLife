@@ -15,8 +15,8 @@ class App extends React.Component {
         super();
         this.going = false;
         this.speed = 500;
-        this.rows = 51;
-        this.cols = 51;
+        this.rows = 55;
+        this.cols = 55;
         this.state = {
             generation: 0,
             gridFull: Array(this.rows)
@@ -245,12 +245,12 @@ class App extends React.Component {
                         slow={this.slow}
                         fast={this.fast}
                         gridSize={this.gridSize}
+                        clear={this.clear}
                     />
                     <GridTemplates
                         bigX={this.bigX}
                         pulsar={this.pulsar}
                         ship={this.ship}
-                        clear={this.clear}
                         seed={this.seed}
                         fpentomino={this.fpentomino}
                     />
