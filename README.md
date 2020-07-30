@@ -25,9 +25,9 @@ On this version, the grid is 50x50 to begin with. The walls act as dead cells.
 -   There are Play and Pause buttons, as well as speed buttons that increment or decrement .2 of a second per generation.
 -   If you wish to clear the field and draw your own figures on the grid, there is a button for that.
 
--Note that the only time changes can be made is when the game is paused. Clearing the grid pauses the game.
-
 -   The Random button will make the board randomized with some cells being dead and most being alive.
+
+-Note that the only time changes can be made is when the game is paused. Clearing the grid pauses the game.
 
 ## For developers
 
