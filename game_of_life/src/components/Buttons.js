@@ -6,6 +6,7 @@ class Buttons extends React.Component {
 
     render() {
         return (
+            // Buttons to return functions
             <div className="buttons">
                 <button onClick={this.props.playButton}>Play</button>
                 <button onClick={this.props.pauseButton}>Pause</button>

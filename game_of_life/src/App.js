@@ -5,8 +5,11 @@ import Grid from "./components/Grid";
 import Buttons from "./components/Buttons.js";
 import GameRules from "./components/GameRules";
 import GridTemplates from "./components/GridTemplates.js";
+//  Renaming of the page's title
 document.title = "Conways's Game of Life";
 class App extends React.Component {
+    // Start off app being a class. Have a check to see if the program is running,
+    // has a speed, rows, columns, generation state and grid state
     constructor() {
         super();
         this.going = false;
@@ -20,7 +23,7 @@ class App extends React.Component {
                 .map(() => Array(this.cols).fill(false)),
         };
     }
-
+    // Function to click a box and selected it !dead or !alive
     selectBox = (row, col) => {
         if (this.going) {
             return;
@@ -32,7 +35,7 @@ class App extends React.Component {
             });
         }
     };
-
+    // Randomizer ot fill the grid randomly. Does not restart the current gen going
     seed = () => {
         let gridCopy = arrayClone(this.state.gridFull);
         for (let i = 0; i < this.rows; i++) {
@@ -44,7 +47,7 @@ class App extends React.Component {
         }
         this.setState({ gridFull: gridCopy, generation: 0 });
     };
-
+    // Makes a big x across the board. It clears the board and pauses the game
     bigX = async () => {
         await this.clear();
         let gridCopy = arrayClone(this.state.gridFull);
@@ -61,22 +64,23 @@ class App extends React.Component {
         }
         this.setState({ gridFull: gridCopy });
     };
-
+    // play
     playButton = () => {
         this.going = true;
         clearInterval(this.intervalId);
         this.intervalId = setInterval(this.play, this.speed);
     };
-
+    // pause
     pauseButton = () => {
         this.going = false;
         clearInterval(this.intervalId);
     };
-
+    // slow down the program by 200 ms
     slow = () => {
         this.speed += 200;
         this.playButton();
     };
+    // speed up the program by 200 ms
 
     fast = () => {
         if (this.speed === 100) {
@@ -86,7 +90,7 @@ class App extends React.Component {
             this.playButton();
         }
     };
-
+    // clear and pauses the game
     clear = () => {
         const grid = Array(this.rows)
             .fill()
@@ -97,7 +101,7 @@ class App extends React.Component {
         });
         this.pauseButton();
     };
-
+    // adjusting the grid size
     gridSize = (size) => {
         switch (size) {
             case "1":
@@ -114,7 +118,7 @@ class App extends React.Component {
         }
         this.clear();
     };
-
+    // the game playing
     play = () => {
         let g = this.state.gridFull;
         let g2 = arrayClone(this.state.gridFull);
@@ -139,7 +143,7 @@ class App extends React.Component {
             generation: (this.state.generation += 1),
         });
     };
-
+    // when the program opens up, be ready to watch a random grid
     componentDidMount() {
         this.seed();
     }
@@ -157,11 +161,13 @@ class App extends React.Component {
                         selectBox={this.selectBox}
                     />
                 </div>
+
                 <div>
                     <GameRules />
                     <h4>
                         Current Speed: {this.speed / 1000} seconds/generation
                     </h4>
+                    {/* Buttons grouped below */}
                     <Buttons
                         playButton={this.playButton}
                         pauseButton={this.pauseButton}
@@ -174,12 +180,13 @@ class App extends React.Component {
                         clear={this.clear}
                         seed={this.seed}
                     />
+                    {/* End of buttons grouping */}
                 </div>
             </section>
         );
     }
 }
-
+// function to duplicate array
 function arrayClone(arr) {
     return JSON.parse(JSON.stringify(arr));
 }
