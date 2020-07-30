@@ -220,8 +220,6 @@ class App extends React.Component {
         this.seed();
     }
 
-    {/* Buttons grouped below */}
-    {/* End of buttons grouping */}
     render() {
         return (
             <section>
@@ -247,7 +245,7 @@ class App extends React.Component {
                         slow={this.slow}
                         fast={this.fast}
                         gridSize={this.gridSize}
-                        />
+                    />
                     <GridTemplates
                         bigX={this.bigX}
                         pulsar={this.pulsar}
@@ -255,7 +253,7 @@ class App extends React.Component {
                         clear={this.clear}
                         seed={this.seed}
                         fpentomino={this.fpentomino}
-                        />
+                    />
                 </div>
             </section>
         );
