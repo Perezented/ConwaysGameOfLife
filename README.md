@@ -31,6 +31,7 @@ On this version, the grid is 50x50 to begin with. The walls act as dead cells.
 
 ## For developers
 
+\*\* Note: Some of the comments have been removed due to React error 152. Some comments may be out of place. React error 152 only applied on a production build. The comments inside of render return statements return an error on production but not on development. True comments are located in git history as 'ae4ebc0'. The production build from there was broken.
 React js was the main code for this project. Nothing more than normal react dependencies needed.
 
 -react
