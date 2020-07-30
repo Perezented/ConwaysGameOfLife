@@ -9,11 +9,8 @@ class Buttons extends React.Component {
             <div className="buttons">
                 <button onClick={this.props.playButton}>Play</button>
                 <button onClick={this.props.pauseButton}>Pause</button>
-                <button onClick={this.props.clear}>Clear</button>
-                <button onClick={this.props.slow}>Slow</button>
-                <button onClick={this.props.fast}>Fast</button>
-                <button onClick={this.props.seed}>Randomize</button>
-                <button onClick={this.props.bigX}>bigX</button>
+                <button onClick={this.props.slow}>Slower</button>
+                <button onClick={this.props.fast}>Faster</button>
             </div>
         );
     }

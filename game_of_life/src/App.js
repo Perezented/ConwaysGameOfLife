@@ -4,7 +4,7 @@ import "./App.css";
 import Grid from "./components/Grid";
 import Buttons from "./components/Buttons.js";
 import GameRules from "./components/GameRules";
-
+import GridTemplates from "./components/GridTemplates.js";
 document.title = "Conways's Game of Life";
 class App extends React.Component {
     constructor() {
@@ -20,6 +20,7 @@ class App extends React.Component {
                 .map(() => Array(this.cols).fill(false)),
         };
     }
+
     selectBox = (row, col) => {
         if (this.going) {
             return;
@@ -31,6 +32,7 @@ class App extends React.Component {
             });
         }
     };
+
     seed = () => {
         let gridCopy = arrayClone(this.state.gridFull);
         for (let i = 0; i < this.rows; i++) {
@@ -65,6 +67,7 @@ class App extends React.Component {
         clearInterval(this.intervalId);
         this.intervalId = setInterval(this.play, this.speed);
     };
+
     pauseButton = () => {
         this.going = false;
         clearInterval(this.intervalId);
@@ -85,7 +88,7 @@ class App extends React.Component {
     };
 
     clear = () => {
-        var grid = Array(this.rows)
+        const grid = Array(this.rows)
             .fill()
             .map(() => Array(this.cols).fill(false));
         this.setState({
@@ -94,6 +97,7 @@ class App extends React.Component {
         });
         this.pauseButton();
     };
+
     gridSize = (size) => {
         switch (size) {
             case "1":
@@ -101,15 +105,16 @@ class App extends React.Component {
                 this.rows = 25;
                 break;
             case "2":
-                this.cols = 50;
-                this.rows = 50;
+                this.cols = 35;
+                this.rows = 35;
                 break;
             default:
-                this.cols = 45;
-                this.rows = 45;
+                this.cols = 51;
+                this.rows = 51;
         }
         this.clear();
     };
+
     play = () => {
         let g = this.state.gridFull;
         let g2 = arrayClone(this.state.gridFull);
@@ -151,28 +156,32 @@ class App extends React.Component {
                         cols={this.cols}
                         selectBox={this.selectBox}
                     />
+                </div>
+                <div>
+                    <GameRules />
                     <h4>
-                        Current Speed: {this.speed / 1000}seconds/generation
+                        Current Speed: {this.speed / 1000} seconds/generation
                     </h4>
                     <Buttons
                         playButton={this.playButton}
                         pauseButton={this.pauseButton}
                         slow={this.slow}
                         fast={this.fast}
+                        gridSize={this.gridSize}
+                    />
+                    <GridTemplates
+                        bigX={this.bigX}
                         clear={this.clear}
                         seed={this.seed}
-                        gridSize={this.gridSize}
-                        bigX={this.bigX}
                     />
-                </div>
-                <div>
-                    <GameRules />
                 </div>
             </section>
         );
     }
 }
+
 function arrayClone(arr) {
     return JSON.parse(JSON.stringify(arr));
 }
+
 export default App;
