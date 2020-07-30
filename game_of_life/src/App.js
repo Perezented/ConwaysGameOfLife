@@ -220,6 +220,8 @@ class App extends React.Component {
         this.seed();
     }
 
+    {/* Buttons grouped below */}
+    {/* End of buttons grouping */}
     render() {
         return (
             <section>
@@ -239,14 +241,13 @@ class App extends React.Component {
                     <h4>
                         Current Speed: {this.speed / 1000} seconds/generation
                     </h4>
-                    {/* Buttons grouped below */}
                     <Buttons
                         playButton={this.playButton}
                         pauseButton={this.pauseButton}
                         slow={this.slow}
                         fast={this.fast}
                         gridSize={this.gridSize}
-                    />
+                        />
                     <GridTemplates
                         bigX={this.bigX}
                         pulsar={this.pulsar}
@@ -254,8 +255,7 @@ class App extends React.Component {
                         clear={this.clear}
                         seed={this.seed}
                         fpentomino={this.fpentomino}
-                    />
-                    {/* End of buttons grouping */}
+                        />
                 </div>
             </section>
         );
