@@ -222,8 +222,9 @@ class App extends React.Component {
         });
     };
     // when the program opens up, be ready to watch a random grid
-    // componentDidMount() {
-    // }
+    componentDidMount() {
+        this.seed();
+    }
 
     render() {
         return (
