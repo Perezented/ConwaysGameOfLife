@@ -1,8 +1,8 @@
 import React from "react";
 
+// Buttons to return grid templates
 export default function GridTemplates(props) {
     return (
-        // Buttons to return grid templates
         <div className="buttons">
             <button onClick={props.bigX}>BigX</button>
             <button onClick={props.pulsar}>Pulsar</button>

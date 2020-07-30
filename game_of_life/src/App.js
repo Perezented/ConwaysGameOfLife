@@ -8,9 +8,9 @@ import GridTemplates from "./components/GridTemplates.js";
 //  Renaming of the page's title
 document.title = "Conways's Game of Life";
 
+// Start off app being a class. Have a check to see if the program is running,
+// has a speed, rows, columns, generation state and grid state
 class App extends React.Component {
-    // Start off app being a class. Have a check to see if the program is running,
-    // has a speed, rows, columns, generation state and grid state
     constructor() {
         super();
         this.going = false;
@@ -136,7 +136,6 @@ class App extends React.Component {
 
     fpentomino = async () => {
         await this.clear();
-
         let gridCopy = arrayClone(this.state.gridFull);
         let j = Math.floor(this.rows / 2) + 1;
         let i = Math.floor(this.cols / 2) + 1;
@@ -147,11 +146,6 @@ class App extends React.Component {
             gridCopy[x][y] = true;
             gridCopy[x - 1][y] = true;
             gridCopy[x - 2][y] = true;
-        }
-        function threeAcross(x, y) {
-            gridCopy[x][y] = true;
-            gridCopy[x][y + 1] = true;
-            gridCopy[x][y + 2] = true;
         }
         this.setState({ gridFull: gridCopy });
     };

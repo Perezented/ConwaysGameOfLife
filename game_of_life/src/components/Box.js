@@ -1,7 +1,7 @@
 import React from "react";
 
+// funciton to toggle box !dead or !alive
 class Box extends React.Component {
-    // funciton to toggle box !dead or !alive
     selectBox = () => {
         this.props.selectBox(this.props.row, this.props.col);
     };

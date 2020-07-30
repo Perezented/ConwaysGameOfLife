@@ -1,8 +1,8 @@
 import React from "react";
 import Box from "./Box";
+// grid size, sets the grid up dynamically
 class Grid extends React.Component {
     render() {
-        // grid size, sets the grid up dynamically
         const width = this.props.cols * 14;
 
         let rowsArr = [];
