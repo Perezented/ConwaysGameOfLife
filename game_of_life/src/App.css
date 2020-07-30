@@ -37,7 +37,7 @@
     }
 }
 body {
-    background-image: url("./claudio-schwarz-purzlbaum-oNWvPQXoEKc-unsplash.jpg");
+    background-image: url("./imgs/claudio-schwarz-purzlbaum-oNWvPQXoEKc-unsplash.jpg");
     background-position-y: bottom;
     background-position-x: right;
     background-size: cover;
@@ -60,6 +60,8 @@ body {
 
 .on {
     background-color: #2bae66ff;
+    background-image: url("./imgs/LiveCell.png");
+    filter: drop-shadow(0 0 2rem rgb(157, 248, 154));
 }
 
 .box:hover {

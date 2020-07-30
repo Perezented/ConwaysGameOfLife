@@ -13,6 +13,7 @@ class Buttons extends React.Component {
                 <button onClick={this.props.slow}>Slow</button>
                 <button onClick={this.props.fast}>Fast</button>
                 <button onClick={this.props.seed}>Randomize</button>
+                <button onClick={this.props.bigX}>bigX</button>
             </div>
         );
     }

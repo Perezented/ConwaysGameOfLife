@@ -11,8 +11,8 @@ class App extends React.Component {
         super();
         this.going = false;
         this.speed = 500;
-        this.rows = 50;
-        this.cols = 50;
+        this.rows = 51;
+        this.cols = 51;
         this.state = {
             generation: 0,
             gridFull: Array(this.rows)
@@ -41,6 +41,23 @@ class App extends React.Component {
             }
         }
         this.setState({ gridFull: gridCopy, generation: 0 });
+    };
+
+    bigX = async () => {
+        await this.clear();
+        let gridCopy = arrayClone(this.state.gridFull);
+        let i = 0;
+        let j = 0;
+        let m = this.rows - 1;
+        while (i < this.rows) {
+            gridCopy[i][j] = true;
+            gridCopy[m][j] = true;
+            console.log(i);
+            i += 1;
+            j += 1;
+            m -= 1;
+        }
+        this.setState({ gridFull: gridCopy });
     };
 
     playButton = () => {
@@ -145,6 +162,7 @@ class App extends React.Component {
                         clear={this.clear}
                         seed={this.seed}
                         gridSize={this.gridSize}
+                        bigX={this.bigX}
                     />
                 </div>
                 <div>
