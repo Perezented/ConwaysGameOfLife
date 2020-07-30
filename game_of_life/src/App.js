@@ -5,8 +5,10 @@ import Grid from "./components/Grid";
 import Buttons from "./components/Buttons.js";
 import GameRules from "./components/GameRules";
 import GridTemplates from "./components/GridTemplates.js";
+import GridSize from "./components/GridSize";
 //  Renaming of the page's title
 document.title = "Conways's Game of Life";
+
 class App extends React.Component {
     // Start off app being a class. Have a check to see if the program is running,
     // has a speed, rows, columns, generation state and grid state
@@ -70,8 +72,6 @@ class App extends React.Component {
         let gridCopy = arrayClone(this.state.gridFull);
         let j = Math.floor(this.rows / 2) + 1;
         let i = Math.floor(this.cols / 2) + 1;
-        // gridCopy[i][j] = true;
-        // gridCopy[i][j] = true;
         // 4 center up and down
         threeUP(i - 2, j + 1);
         threeUP(i - 2, j - 1);
@@ -84,18 +84,66 @@ class App extends React.Component {
         threeAcross(i + 1, j - 4);
         threeAcross(i - 1, j - 4);
 
-        // threeAcross(i - 4, j - 6);
-        // threeAcross(i + 4, j + 6);
+        // the outer across rows
         threeAcross(i - 6, j + 2);
         threeAcross(i + 6, j + 2);
         threeAcross(i + 6, j - 4);
         threeAcross(i - 6, j - 4);
-        // threeAcross(i + 4, j - 6);
+
+        // the outer up and down columns
         threeUP(i - 2, j + 6);
         threeUP(i - 2, j - 6);
         threeUP(i + 4, j + 6);
         threeUP(i + 4, j - 6);
 
+        function threeUP(x, y) {
+            gridCopy[x][y] = true;
+            gridCopy[x - 1][y] = true;
+            gridCopy[x - 2][y] = true;
+        }
+
+        function threeAcross(x, y) {
+            gridCopy[x][y] = true;
+            gridCopy[x][y + 1] = true;
+            gridCopy[x][y + 2] = true;
+        }
+
+        this.setState({ gridFull: gridCopy });
+    };
+
+    ship = async () => {
+        await this.clear();
+
+        let gridCopy = arrayClone(this.state.gridFull);
+        let j = Math.floor(this.rows / 2) + 1;
+        let i = Math.floor(this.cols / 2) + 1;
+        threeUP(i, j);
+        threeAcross(i - 2, j - 2);
+        gridCopy[i - 2][j - 3] = true;
+        gridCopy[i - 1][j - 4] = true;
+        gridCopy[i + 1][j - 4] = true;
+        gridCopy[i + 1][j - 1] = true;
+        function threeUP(x, y) {
+            gridCopy[x][y] = true;
+            gridCopy[x - 1][y] = true;
+            gridCopy[x - 2][y] = true;
+        }
+        function threeAcross(x, y) {
+            gridCopy[x][y] = true;
+            gridCopy[x][y + 1] = true;
+            gridCopy[x][y + 2] = true;
+        }
+        this.setState({ gridFull: gridCopy });
+    };
+    fpentomino = async () => {
+        await this.clear();
+
+        let gridCopy = arrayClone(this.state.gridFull);
+        let j = Math.floor(this.rows / 2) + 1;
+        let i = Math.floor(this.cols / 2) + 1;
+        threeUP(i, j);
+        gridCopy[i - 1][j - 1] = true;
+        gridCopy[i - 2][j + 1] = true;
         function threeUP(x, y) {
             gridCopy[x][y] = true;
             gridCopy[x - 1][y] = true;
@@ -119,18 +167,18 @@ class App extends React.Component {
         this.going = false;
         clearInterval(this.intervalId);
     };
-    // slow down the program by 200 ms
+    // slow down the program by 100 ms
     slow = () => {
-        this.speed += 200;
+        this.speed += 100;
         this.playButton();
     };
-    // speed up the program by 200 ms
+    // speed up the program by 100 ms
 
     fast = () => {
         if (this.speed === 100) {
             return;
         } else {
-            this.speed -= 200;
+            this.speed -= 100;
             this.playButton();
         }
     };
@@ -145,23 +193,7 @@ class App extends React.Component {
         });
         this.pauseButton();
     };
-    // adjusting the grid size
-    gridSize = (size) => {
-        switch (size) {
-            case "1":
-                this.cols = 25;
-                this.rows = 25;
-                break;
-            case "2":
-                this.cols = 35;
-                this.rows = 35;
-                break;
-            default:
-                this.cols = 51;
-                this.rows = 51;
-        }
-        this.clear();
-    };
+
     // the game playing
     play = () => {
         let g = this.state.gridFull;
@@ -191,9 +223,8 @@ class App extends React.Component {
         });
     };
     // when the program opens up, be ready to watch a random grid
-    componentDidMount() {
-        this.pulsar();
-    }
+    // componentDidMount() {
+    // }
 
     render() {
         return (
@@ -225,8 +256,10 @@ class App extends React.Component {
                     <GridTemplates
                         bigX={this.bigX}
                         pulsar={this.pulsar}
+                        ship={this.ship}
                         clear={this.clear}
                         seed={this.seed}
+                        fpentomino={this.fpentomino}
                     />
                     {/* End of buttons grouping */}
                 </div>
