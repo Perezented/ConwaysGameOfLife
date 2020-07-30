@@ -64,6 +64,50 @@ class App extends React.Component {
         }
         this.setState({ gridFull: gridCopy });
     };
+
+    pulsar = async () => {
+        await this.clear();
+        let gridCopy = arrayClone(this.state.gridFull);
+        let j = Math.floor(this.rows / 2) + 1;
+        let i = Math.floor(this.cols / 2) + 1;
+        // gridCopy[i][j] = true;
+        // gridCopy[i][j] = true;
+        // 4 center up and down
+        threeUP(i - 2, j + 1);
+        threeUP(i - 2, j - 1);
+        threeUP(i + 4, j + 1);
+        threeUP(i + 4, j - 1);
+
+        // 4 center across
+        threeAcross(i - 1, j + 2);
+        threeAcross(i + 1, j + 2);
+        threeAcross(i + 1, j - 4);
+        threeAcross(i - 1, j - 4);
+
+        // threeAcross(i - 4, j - 6);
+        // threeAcross(i + 4, j + 6);
+        threeAcross(i - 6, j + 2);
+        threeAcross(i + 6, j + 2);
+        threeAcross(i + 6, j - 4);
+        threeAcross(i - 6, j - 4);
+        // threeAcross(i + 4, j - 6);
+        threeUP(i - 2, j + 6);
+        threeUP(i - 2, j - 6);
+        threeUP(i + 4, j + 6);
+        threeUP(i + 4, j - 6);
+
+        function threeUP(x, y) {
+            gridCopy[x][y] = true;
+            gridCopy[x - 1][y] = true;
+            gridCopy[x - 2][y] = true;
+        }
+        function threeAcross(x, y) {
+            gridCopy[x][y] = true;
+            gridCopy[x][y + 1] = true;
+            gridCopy[x][y + 2] = true;
+        }
+        this.setState({ gridFull: gridCopy });
+    };
     // play
     playButton = () => {
         this.going = true;
@@ -125,6 +169,7 @@ class App extends React.Component {
         for (let i = 0; i < this.rows; i++) {
             for (let j = 0; j < this.cols; j++) {
                 let count = 0;
+                // check and see if the items to the left, right, below, above, and the diagnals contain live or dead cells. if there are live cells, increment count
                 if (i > 0) if (g[i - 1][j]) count++;
                 if (i > 0 && j > 0) if (g[i - 1][j - 1]) count++;
                 if (i > 0 && j < this.cols - 1) if (g[i - 1][j + 1]) count++;
@@ -134,7 +179,9 @@ class App extends React.Component {
                 if (i < this.rows - 1 && j > 0) if (g[i + 1][j - 1]) count++;
                 if (i < this.rows - 1 && j < this.cols - 1)
                     if (g[i + 1][j + 1]) count++;
+                // if the amount of live cells in the area are not between 2 and 3, the item is dead
                 if (g[i][j] && (count < 2 || count > 3)) g2[i][j] = false;
+                // if the amount of neighbors is 3 exactly and the item was dead originally, it comes back to life
                 if (!g[i][j] && count === 3) g2[i][j] = true;
             }
         }
@@ -145,7 +192,7 @@ class App extends React.Component {
     };
     // when the program opens up, be ready to watch a random grid
     componentDidMount() {
-        this.seed();
+        this.pulsar();
     }
 
     render() {
@@ -177,6 +224,7 @@ class App extends React.Component {
                     />
                     <GridTemplates
                         bigX={this.bigX}
+                        pulsar={this.pulsar}
                         clear={this.clear}
                         seed={this.seed}
                     />

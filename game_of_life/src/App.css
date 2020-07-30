@@ -55,13 +55,14 @@ html {
 }
 
 .off {
-    background-color: rgb(0, 0, 0);
+    background: black;
 }
 
 .on {
     background-color: #2bae66ff;
     background-image: url("./imgs/LiveCell.png");
     filter: drop-shadow(0 0 2rem rgb(157, 248, 154));
+    /* background-size: contain; */
 }
 
 .box:hover {
