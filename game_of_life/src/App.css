@@ -105,7 +105,6 @@ h6,
 p,
 li {
     margin: auto;
-    width: 50%;
     margin-top: 10px;
 }
 
@@ -122,14 +121,14 @@ section {
     padding-bottom: 5%;
     padding-top: 2%;
 }
-.gameRules {
+#gameRules {
     margin: 4%;
-    margin-top: 12%;
+    margin-top: 6%;
     color: white;
     display: flex;
     flex-direction: column;
 }
-.gameRules li {
+#gameRules li {
     margin: 2%;
 }
 

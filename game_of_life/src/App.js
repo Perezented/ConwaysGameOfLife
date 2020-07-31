@@ -197,8 +197,8 @@ class App extends React.Component {
     removeTen = async () => {
         if (this.cols > 14) {
             await this.clear();
-            this.rows -= 10;
             this.cols -= 10;
+            this.rows -= 10;
             this.clear();
         }
     };
@@ -208,7 +208,7 @@ class App extends React.Component {
         if (theFormula > window.innerWidth || theFormula > window.innerHeight) {
             return;
         } else {
-            if (window.innerWidth <= 500) {
+            if (window.innerWidth <= 700) {
                 if (this.cols !== 25) {
                     await this.clear();
                     this.rows += 10;
@@ -262,7 +262,7 @@ class App extends React.Component {
             <section>
                 <div className="theGrid">
                     <div className="title">
-                        {window.innerWidth < 700 && (
+                        {window.innerWidth < 800 && (
                             <a href="#gameRules">Rules</a>
                         )}
                         <h1>The Game of Life</h1>
