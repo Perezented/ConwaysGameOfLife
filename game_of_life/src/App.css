@@ -37,6 +37,7 @@
     }
 }
 html {
+    scroll-behavior: smooth;
     background-image: url("./imgs/claudio-schwarz-purzlbaum-oNWvPQXoEKc-unsplash.jpg");
     background-position-y: 100%;
     background-position-x: right;
@@ -248,8 +249,26 @@ form {
     button {
         padding: 0.5rem 0.9rem;
     }
-    .gameRules {
+    #gameRules {
         margin: 2% auto;
         width: 90vw;
+        color: white;
+    }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin-top: 1%;
+    }
+
+    .gridWrapper {
+        padding: 0;
+        margin: 0;
+    }
+    a {
+        transition: 1s all ease-out;
+        color: green;
     }
 }

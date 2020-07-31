@@ -261,7 +261,12 @@ class App extends React.Component {
         return (
             <section>
                 <div className="theGrid">
-                    <h1>The Game of Life</h1>
+                    <div className="title">
+                        {window.innerWidth < 700 && (
+                            <a href="#gameRules">Rules</a>
+                        )}
+                        <h1>The Game of Life</h1>
+                    </div>
                     <h2>Generation: {this.state.generation}</h2>
                     <Grid
                         gridFull={this.state.gridFull}

@@ -2,7 +2,7 @@ import React from "react";
 
 export default function GameRules() {
     return (
-        <div className={"gameRules"}>
+        <div id={"gameRules"}>
             <h2>Rules of Conway's Game of Life</h2>
             <p>
                 The Game of Life has a grid. Each cell of the grid is either
