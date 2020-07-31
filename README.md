@@ -12,17 +12,18 @@ A game made by John Horton Conway in 1970, set up the different grid cells to be
 
 ## Rules for the Game of Life
 
-1. Any cell with 2 or 3 neighbors lives the next generation.
+1. Any cell with 2 or 3 live neighbors lives the next generation.
 
-2. Any dead cell with exactly 3 neighbors comes to life.
+2. Any dead cell with exactly 3 live neighbors comes to life.
 
-3. Any other cell is dead.
+3. Any other cell are dead.
 
 ## My Version of the game
 
-On this version, the grid is 50x50 to begin with. The walls act as dead cells.
+On this version, the grid is 55x55 to begin with on pc, 25x25 on mobile. The walls act as dead cells.
 
--   There are Play and Pause buttons, as well as speed buttons that increment or decrement .2 of a second per generation.
+-   There are Play and Pause buttons, as well as speed buttons that increment or decrement .1 of a second per generation.
+
 -   If you wish to clear the field and draw your own figures on the grid, there is a button for that.
 
 -   The Random button will make the board randomized with some cells being dead and most being alive.
