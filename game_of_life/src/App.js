@@ -115,6 +115,7 @@ class App extends React.Component {
         }
 
         this.setState({ gridFull: gridCopy });
+        this.playButton();
     };
 
     ship = async () => {
@@ -253,9 +254,9 @@ class App extends React.Component {
         });
     };
     // when the program opens up, be ready to watch a random grid
-    componentDidMount() {
-        this.seed();
-    }
+    // componentDidMount() {
+    //     this.seed();
+    // }
 
     render() {
         return (
