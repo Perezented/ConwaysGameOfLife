@@ -69,11 +69,15 @@ html {
     background: #0b7e07;
 }
 
+.gridWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4% 0;
+}
 .grid {
     width: 150px;
     line-height: 0;
-    margin: auto;
-    margin-top: 20px;
     border: 20px ridge rgba(4, 47, 29, 0.89);
 }
 .grid:hover {
@@ -128,7 +132,7 @@ button {
     margin: 0.5rem;
     padding: 0.3rem 1rem;
     font-weight: 700;
-    color: rgb(97, 196, 97);
+    color: white;
     background: linear-gradient(rgba(128, 128, 128, 0.774), rgb(0, 0, 0));
     text-shadow: 0px 0px 2px rgba(255, 255, 255, 0.253);
 }
@@ -155,4 +159,93 @@ button:hover {
     width: 110%;
     text-align: center;
     margin-left: -7%;
+}
+
+form {
+    width: 30vw;
+    margin: 5% auto 0;
+}
+
+.slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 75%;
+    outline: none;
+    opacity: 0.7;
+    background: linear-gradient(
+        90deg,
+        rgb(214, 214, 214) 60%,
+        rgb(214, 214, 214) 60%
+    );
+    -webkit-transition: 0.2s;
+    transition: opacity 0.2s;
+    border-radius: 10px;
+    box-shadow: 0px 1px 10px 1px black;
+}
+.slider:hover {
+    opacity: 1;
+}
+.slider::before {
+    content: "0";
+    color: white;
+    font-size: 2rem;
+    position: absolute;
+    left: 12%;
+    top: 26%;
+}
+.slider::after {
+    content: "100";
+    color: white;
+    font-size: 2rem;
+    position: absolute;
+    left: 80%;
+    top: 26%;
+}
+
+.slider:::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 30px;
+    height: 30px;
+    background: white;
+    cursor: pointer;
+    border-radius: 50%;
+}
+.grey {
+    color: grey;
+    filter: none;
+}
+.grey:hover {
+    filter: drop-shadow(0 0 0 black);
+}
+@media (max-width: 500px) {
+    section {
+        width: 100vw;
+        display: grid;
+        grid-template-columns: max-content;
+    }
+    div {
+        width: 100vw;
+        padding: 0;
+    }
+    img {
+        width: 45px;
+        height: 45px;
+    }
+    h4 {
+        font-size: 0.6rem;
+        text-align: center;
+        padding-top: 1%;
+    }
+    .notTheGrid {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    button {
+        padding: 0.5rem 0.9rem;
+    }
+    .gameRules {
+        margin: 2% auto;
+        width: 90vw;
+    }
 }

@@ -27,8 +27,10 @@ class Grid extends React.Component {
             }
         }
         return (
-            <div className="grid" style={{ width: width }}>
-                {rowsArr}
+            <div className="gridWrapper">
+                <div className="grid" style={{ width: width }}>
+                    {rowsArr}
+                </div>
             </div>
         );
     }

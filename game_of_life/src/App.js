@@ -5,8 +5,10 @@ import Grid from "./components/Grid";
 import Buttons from "./components/Buttons.js";
 import GameRules from "./components/GameRules";
 import GridTemplates from "./components/GridTemplates.js";
+import GridSizer from "./components/GridSizer";
 //  Renaming of the page's title
 document.title = "Conways's Game of Life";
+console.log(window.innerWidth);
 
 // Start off app being a class. Have a check to see if the program is running,
 // has a speed, rows, columns, generation state and grid state
@@ -15,8 +17,13 @@ class App extends React.Component {
         super();
         this.going = false;
         this.speed = 500;
-        this.rows = 55;
-        this.cols = 55;
+        if (window.innerWidth > 500) {
+            this.rows = 55;
+            this.cols = 55;
+        } else {
+            this.rows = 25;
+            this.cols = 25;
+        }
         this.state = {
             generation: 0,
             gridFull: Array(this.rows)
@@ -58,7 +65,6 @@ class App extends React.Component {
         while (i < this.rows) {
             gridCopy[i][j] = true;
             gridCopy[m][j] = true;
-            console.log(i);
             i += 1;
             j += 1;
             m -= 1;
@@ -187,6 +193,37 @@ class App extends React.Component {
         this.pauseButton();
     };
 
+    addTen = async () => {
+        await this.clear();
+        this.rows = 25;
+        this.cols = 25;
+        this.clear();
+    };
+
+    removeTen = async () => {
+        if (this.cols > 14) {
+            await this.clear();
+            this.rows -= 10;
+            this.cols -= 10;
+            this.clear();
+        }
+    };
+    addTen = async () => {
+        if (window.innerWidth <= 500) {
+            if (this.cols != 25) {
+                await this.clear();
+                this.rows += 10;
+                this.cols += 10;
+                this.clear();
+            }
+        } else {
+            await this.clear();
+            this.rows += 10;
+            this.cols += 10;
+            this.clear();
+        }
+    };
+
     // the game playing
     play = () => {
         let g = this.state.gridFull;
@@ -223,7 +260,7 @@ class App extends React.Component {
     render() {
         return (
             <section>
-                <div>
+                <div className="theGrid">
                     <h1>The Game of Life</h1>
                     <h2>Generations: {this.state.generation}</h2>
                     <Grid
@@ -234,7 +271,7 @@ class App extends React.Component {
                     />
                 </div>
 
-                <div>
+                <div className="notTheGrid">
                     <GameRules />
                     <h4>
                         Current Speed: {this.speed / 1000} seconds/generation
@@ -246,6 +283,7 @@ class App extends React.Component {
                         fast={this.fast}
                         gridSize={this.gridSize}
                         clear={this.clear}
+                        going={this.going}
                     />
                     <GridTemplates
                         bigX={this.bigX}
@@ -253,6 +291,11 @@ class App extends React.Component {
                         ship={this.ship}
                         seed={this.seed}
                         fpentomino={this.fpentomino}
+                    />
+                    <GridSizer
+                        removeTen={this.removeTen}
+                        addTen={this.addTen}
+                        rows={this.rows}
                     />
                 </div>
             </section>
