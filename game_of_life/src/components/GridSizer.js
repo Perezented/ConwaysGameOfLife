@@ -2,6 +2,8 @@ import React from "react";
 
 export default function GridSizer(props) {
     // console.log((props.rows + 10) * 10 + 40);
+    const theFormula = (props.rows + 10) * 10 + 40;
+
     return (
         <div className="buttons">
             <button
@@ -14,7 +16,11 @@ export default function GridSizer(props) {
             <button
                 onClick={props.addTen}
                 className={
-                    props.rows === 25 && window.innerWidth < 500 ? "grey" : null
+                    (props.rows === 25 && window.innerWidth < 500) ||
+                    theFormula > window.innerWidth ||
+                    theFormula > window.innerHeight
+                        ? "grey"
+                        : null
                 }
             >
                 Add 10x10 cells

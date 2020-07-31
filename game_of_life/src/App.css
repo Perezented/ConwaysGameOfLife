@@ -79,7 +79,8 @@ html {
     width: 150px;
     line-height: 0;
     border: 20px ridge rgba(4, 47, 29, 0.89);
-    animation-duration: 1s;
+    transition: 0.8s all ease-in;
+    transform: translateY(0);
 }
 .grid:hover {
     cursor: crosshair;
@@ -220,6 +221,7 @@ form {
 .grey:hover {
     filter: drop-shadow(0 0 0 black);
 }
+
 @media (max-width: 800px) {
     section {
         width: 100vw;
