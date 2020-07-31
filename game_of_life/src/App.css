@@ -79,6 +79,7 @@ html {
     width: 150px;
     line-height: 0;
     border: 20px ridge rgba(4, 47, 29, 0.89);
+    animation-duration: 1s;
 }
 .grid:hover {
     cursor: crosshair;
@@ -148,17 +149,18 @@ button:hover {
     width: 90%;
 }
 .imgs img {
-    margin: 0 1rem;
+    margin: 0 auto;
     padding: 0;
     cursor: pointer;
-
     border: ridge 7px rgb(4, 53, 4);
 }
 .imgs h4 {
     padding: 0;
     width: 110%;
-    text-align: center;
     margin-left: -7%;
+}
+.imgs div {
+    text-align: center;
 }
 
 form {
@@ -218,7 +220,7 @@ form {
 .grey:hover {
     filter: drop-shadow(0 0 0 black);
 }
-@media (max-width: 500px) {
+@media (max-width: 800px) {
     section {
         width: 100vw;
         display: grid;

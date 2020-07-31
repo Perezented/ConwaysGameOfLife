@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function GridSizer(props) {
-    console.log(props.rows);
+    // console.log((props.rows + 10) * 10 + 40);
     return (
         <div className="buttons">
             <button

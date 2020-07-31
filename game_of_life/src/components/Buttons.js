@@ -6,13 +6,15 @@ class Buttons extends React.Component {
 
     render() {
         return (
-            <div className="buttons">
-                <button onClick={this.props.playButton}>Play</button>
-                <button onClick={this.props.pauseButton}>Pause</button>
-                <button onClick={this.props.slow}>Slower</button>
-                <button onClick={this.props.fast}>Faster</button>
-                <button onClick={this.props.clear}>Clear</button>
-            </div>
+            <>
+                <div className="buttons">
+                    <button onClick={this.props.playButton}>Play</button>
+                    <button onClick={this.props.pauseButton}>Pause</button>
+                    <button onClick={this.props.slow}>Slower</button>
+                    <button onClick={this.props.fast}>Faster</button>
+                    <button onClick={this.props.clear}>Clear</button>
+                </div>
+            </>
         );
     }
 }

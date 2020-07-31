@@ -31,6 +31,7 @@ class App extends React.Component {
                 .map(() => Array(this.cols).fill(false)),
         };
     }
+
     // Function to click a box and selected it !dead or !alive
     selectBox = (row, col) => {
         if (this.going) {
@@ -193,13 +194,6 @@ class App extends React.Component {
         this.pauseButton();
     };
 
-    addTen = async () => {
-        await this.clear();
-        this.rows = 25;
-        this.cols = 25;
-        this.clear();
-    };
-
     removeTen = async () => {
         if (this.cols > 14) {
             await this.clear();
@@ -208,19 +202,25 @@ class App extends React.Component {
             this.clear();
         }
     };
+
     addTen = async () => {
-        if (window.innerWidth <= 500) {
-            if (this.cols != 25) {
+        const theFormula = (this.rows + 10) * 10 + 40;
+        if (theFormula > window.innerWidth || theFormula > window.innerHeight) {
+            return;
+        } else {
+            if (window.innerWidth <= 500) {
+                if (this.cols !== 25) {
+                    await this.clear();
+                    this.rows += 10;
+                    this.cols += 10;
+                    this.clear();
+                }
+            } else {
                 await this.clear();
                 this.rows += 10;
                 this.cols += 10;
                 this.clear();
             }
-        } else {
-            await this.clear();
-            this.rows += 10;
-            this.cols += 10;
-            this.clear();
         }
     };
 
@@ -284,6 +284,7 @@ class App extends React.Component {
                         gridSize={this.gridSize}
                         clear={this.clear}
                         going={this.going}
+                        speed={this.speed}
                     />
                     <GridTemplates
                         bigX={this.bigX}
