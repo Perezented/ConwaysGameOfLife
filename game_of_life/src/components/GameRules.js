@@ -10,16 +10,16 @@ export default function GameRules() {
                 cells.(Up, Down, Left, Right, Diagonals){" "}
             </p>
             <li>
-                If the cell is alive and has 2 or 3 neighbors, then that cell
-                stays alive.
+                If the cell is alive and has 2 or 3 live neighbors, then that
+                cell stays alive.
             </li>
             <li>
-                If the cell has only 1 neighbor or 4 or more alive neighbors,
-                then the cell dies.
+                If the live cell has only 1 or 4 or more live neighbors, then
+                the cell dies.
             </li>
             <li>
-                If the cell is dead and has 3 neighbors, not one less or one
-                more, then the dead cell comes to life.
+                If the cell is dead and has exactly 3 live neighbors, then the
+                dead cell comes to life.
             </li>
             <li>All other cells stay dead.</li>
             <li>Walls act as dead cells. </li>
