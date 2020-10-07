@@ -22,23 +22,30 @@ A game made by John Horton Conway in 1970, set up the different grid cells to be
 
 On this version, the grid is 55x55 to begin with on pc, 25x25 on mobile. The walls act as dead cells.
 
--   There are Play and Pause buttons, as well as speed buttons that increment or decrement .1 of a second per generation.
+- There are Play and Pause buttons, as well as speed buttons that increment or decrement .1 of a second per generation.
 
--   If you wish to clear the field and draw your own figures on the grid, there is a button for that.
+- If you wish to clear the field and draw your own figures on the grid, there is a button for that.
 
--   The Random button will make the board randomized with some cells being dead and most being alive.
+- The Random button will make the board randomized with some cells being dead and most being alive.
 
 -Note that the only time changes can be made is when the game is paused. Clearing the grid pauses the game.
 
 ## For developers
 
+![license](https://img.shields.io/badge/license-MIT-limegreen)
+![react](https://img.shields.io/badge/react-%5E16.13.1-blueviolet)
+
 \*\* Note: Some of the comments have been removed due to React error 152. Some comments may be out of place. React error 152 only applied on a production build. The comments inside of render return statements return an error on production but not on development. True comments are located in git history as 'ae4ebc0'. The production build from there was broken.
 React js was the main code for this project. Nothing more than normal react dependencies needed.
 
--react
+Use the following command to install all dependencies needed
 
--react-dom
+```git
+npm install
+```
 
--react-scripts
+Then npm start to start up the react site on your local host
 
--react testing libraries
+```git
+npm start
+```
